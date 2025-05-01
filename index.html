@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -34,7 +35,7 @@
             background: linear-gradient(to bottom, #fff8f8, #f0f8ff);
             border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             margin: 0 auto;
             position: relative;
@@ -68,13 +69,13 @@
             transition: all 0.3s ease;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             outline: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .reveal-btn:hover {
             background: linear-gradient(45deg, #0984e3, #e84393);
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .countdown {
@@ -86,20 +87,33 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 100;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             animation: color-change 1s linear infinite alternate;
             transform-origin: center;
         }
 
         @keyframes color-change {
-            0% { color: #74b9ff; }
-            100% { color: #fd79a8; }
+            0% {
+                color: #74b9ff;
+            }
+
+            100% {
+                color: #fd79a8;
+            }
         }
 
         @keyframes pulse-animation {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.15); }
-            100% { transform: translate(-50%, -50%) scale(1); }
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.15);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
 
         .countdown-message {
@@ -114,7 +128,7 @@
             text-align: center;
             width: 80%;
             max-width: 800px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
 
@@ -153,8 +167,13 @@
         }
 
         @keyframes bg-change {
-            0% { background: linear-gradient(135deg, #f8a5c2 0%, #c56cf0 100%); }
-            100% { background: linear-gradient(135deg, #fd79a8 0%, #a55eea 100%); }
+            0% {
+                background: linear-gradient(135deg, #f8a5c2 0%, #c56cf0 100%);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #fd79a8 0%, #a55eea 100%);
+            }
         }
 
         .reveal-message h1 {
@@ -177,9 +196,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         /* Estilos para el confeti */
@@ -197,6 +224,7 @@
                 transform: rotate(0deg) translateX(0);
                 opacity: 1;
             }
+
             100% {
                 top: 100%;
                 transform: rotate(360deg) translateX(calc(20vw * var(--drift)));
@@ -218,12 +246,15 @@
                 top: -20%;
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 top: 120%;
                 opacity: 0;
@@ -231,8 +262,13 @@
         }
 
         @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .hearts-container {
@@ -261,12 +297,15 @@
                 transform: translateY(0) scale(0.8);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-800px) scale(1.2) rotate(360deg);
                 opacity: 0;
@@ -289,12 +328,15 @@
                 transform: translate(0, 100vh);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.8;
             }
+
             90% {
                 opacity: 0.8;
             }
+
             100% {
                 transform: translate(calc(20vw - 40px), -100px);
                 opacity: 0;
@@ -317,19 +359,24 @@
                 transform: translate(-100px, 50vh) scale(0.8);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.9;
             }
+
             45% {
                 transform: translate(30vw, 30vh) scale(1.2) rotate(20deg);
             }
+
             50% {
                 transform: translate(50vw, 40vh) scale(1) rotate(-20deg);
             }
+
             80% {
                 transform: translate(80vw, 20vh) scale(1.2) rotate(20deg);
                 opacity: 0.9;
             }
+
             100% {
                 transform: translate(120vw, 10vh) scale(0.8) rotate(-20deg);
                 opacity: 0;
@@ -352,12 +399,15 @@
                 transform: translateY(-150px) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.7;
             }
+
             90% {
                 opacity: 0.7;
             }
+
             100% {
                 transform: translateY(100vh) rotate(720deg);
                 opacity: 0;
@@ -380,12 +430,15 @@
                 transform: translateX(-200px);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.7;
             }
+
             90% {
                 opacity: 0.7;
             }
+
             100% {
                 transform: translateX(calc(100vw + 200px));
                 opacity: 0;
@@ -401,6 +454,107 @@
             height: 100%;
             z-index: 70;
             pointer-events: none;
+        }
+
+        /* Estilos para el mensaje de bienvenida con animación */
+        .welcome-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fff9f9 0%, #f0f8ff 100%);
+            z-index: 90;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            overflow: hidden;
+        }
+
+        .welcome-content {
+            max-width: 700px;
+            position: relative;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: white;
+            border: 3px dashed;
+            border-image: linear-gradient(45deg, #74b9ff, #fd79a8) 1;
+        }
+
+        .welcome-text {
+            display: inline;
+        }
+
+        .welcome-word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            margin-right: 3px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .welcome-emoji {
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0);
+            margin: 0 3px;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .welcome-emoji.visible {
+            opacity: 1;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .welcome-word.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .welcome-line {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffcc00' d='M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            animation: sparkle-anim 2s linear infinite;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle-anim {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5) rotate(90deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-content {
+                padding: 20px;
+                max-width: 90%;
+            }
         }
 
         /* Media queries para responsividad */
@@ -427,7 +581,7 @@
             .countdown {
                 font-size: 6rem;
             }
-            
+
             .countdown-message {
                 font-size: 1.2rem;
                 width: 90%;
@@ -442,7 +596,11 @@
                 font-size: 1.5rem;
             }
 
-            .flower, .heart, .balloon, .butterfly, .ribbon {
+            .flower,
+            .heart,
+            .balloon,
+            .butterfly,
+            .ribbon {
                 transform-origin: center;
                 transform: scale(0.8);
             }
@@ -471,7 +629,7 @@
             .countdown {
                 font-size: 5rem;
             }
-            
+
             .countdown-message {
                 font-size: 1rem;
                 width: 95%;
@@ -488,7 +646,11 @@
                 font-size: 1.2rem;
             }
 
-            .flower, .heart, .balloon, .butterfly, .ribbon {
+            .flower,
+            .heart,
+            .balloon,
+            .butterfly,
+            .ribbon {
                 transform: scale(0.6);
             }
 
@@ -498,6 +660,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="card">
@@ -506,11 +669,18 @@
             <button class="reveal-btn">Revelar</button>
         </div>
     </div>
-    
+
     <div class="countdown" id="countdown"></div>
-    
+
     <div class="countdown-message" id="countdownMessage"></div>
-    
+
+    <!-- Agregamos el contenedor del mensaje de bienvenida -->
+    <div class="welcome-message" id="welcomeMessage">
+        <div class="welcome-content" id="welcomeContent">
+            <!-- El contenido se generará dinámicamente con JavaScript -->
+        </div>
+    </div>
+
     <div class="reveal-message" id="revealMessage">
         <div class="reveal-background"></div>
         <h1>¡Soy Niña!</h1>
@@ -518,13 +688,13 @@
     </div>
 
     <div class="hearts-container" id="heartsContainer"></div>
-    
+
     <!-- Agregamos un canvas para el confeti -->
     <canvas id="confetti-canvas"></canvas>
 
     <script>
         // Limpiar cualquier animación o elemento previo al cargar la página
-        window.onload = function() {
+        window.onload = function () {
             // Reiniciar todos los elementos a su estado inicial
             resetAnimation();
         };
@@ -562,7 +732,7 @@
             const intensity = window.innerWidth < 768 ? 60 : 80;
             // Ajustar cantidad de partículas según tamaño de pantalla
             const particleMultiplier = window.innerWidth < 768 ? 0.7 : 1;
-            
+
             // Función para crear una explosión de confeti
             function fireConfetti(particleRatio, opts) {
                 myConfetti({
@@ -661,16 +831,16 @@
         function createFlowers() {
             // Ajustar cantidad de flores según tamaño de pantalla
             const flowerCount = window.innerWidth < 768 ? 20 : 30;
-            
+
             for (let i = 0; i < flowerCount; i++) {
                 setTimeout(() => {
                     const flower = document.createElement('div');
                     flower.classList.add('flower');
-                    
+
                     // Alternamos entre diferentes tipos de flores
                     const flowerType = i % 3;
                     let flowerSVG;
-                    
+
                     if (flowerType === 0) {
                         flowerSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="20" fill="#fd79a8"/>
@@ -698,14 +868,14 @@
                             <circle cx="50" cy="50" r="8" fill="#e84393"/>
                         </svg>`;
                     }
-                    
+
                     flower.innerHTML = flowerSVG;
-                    
+
                     // Posición y animación aleatoria
                     flower.style.left = `${Math.random() * 100}%`;
                     flower.style.animationDuration = `${Math.random() * 5 + 7}s`;
                     flower.style.animationDelay = `${Math.random() * 5}s`;
-                    
+
                     body.appendChild(flower);
                 }, i * 200);
             }
@@ -716,23 +886,23 @@
             heartsContainer.style.display = 'block';
             // Ajustar cantidad de corazones según tamaño de pantalla
             const heartCount = window.innerWidth < 768 ? 25 : 40;
-            
+
             for (let i = 0; i < heartCount; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.classList.add('heart');
-                    
+
                     // Tamaño y posición aleatoria
                     const size = Math.random() * 30 + 10;
                     heart.style.width = `${size}px`;
                     heart.style.height = `${size}px`;
                     heart.style.left = `${Math.random() * 100}%`;
                     heart.style.bottom = '0';
-                    
+
                     // Animación aleatoria
                     heart.style.animationDuration = `${Math.random() * 4 + 4}s`;
                     heart.style.animationDelay = `${Math.random() * 5}s`;
-                    
+
                     heartsContainer.appendChild(heart);
                 }, i * 100);
             }
@@ -742,19 +912,19 @@
         function createBalloons() {
             // Ajustar cantidad de globos según tamaño de pantalla
             const balloonCount = window.innerWidth < 768 ? 6 : 10;
-            
+
             for (let i = 0; i < balloonCount; i++) {
                 setTimeout(() => {
                     const balloon = document.createElement('div');
                     balloon.classList.add('balloon');
-                    
+
                     // Posición aleatoria
                     balloon.style.left = `${Math.random() * 100}%`;
-                    
+
                     // Animación aleatoria
                     balloon.style.animationDuration = `${Math.random() * 5 + 12}s`;
                     balloon.style.animationDelay = `${Math.random() * 8}s`;
-                    
+
                     body.appendChild(balloon);
                 }, i * 800);
             }
@@ -764,19 +934,19 @@
         function createButterflies() {
             // Ajustar cantidad de mariposas según tamaño de pantalla
             const butterflyCount = window.innerWidth < 768 ? 5 : 8;
-            
+
             for (let i = 0; i < butterflyCount; i++) {
                 setTimeout(() => {
                     const butterfly = document.createElement('div');
                     butterfly.classList.add('butterfly');
-                    
+
                     // Posición aleatoria
                     butterfly.style.top = `${Math.random() * 80}%`;
-                    
+
                     // Animación aleatoria
                     butterfly.style.animationDuration = `${Math.random() * 8 + 15}s`;
                     butterfly.style.animationDelay = `${Math.random() * 5}s`;
-                    
+
                     body.appendChild(butterfly);
                 }, i * 1000);
             }
@@ -786,27 +956,27 @@
         function createRibbons() {
             // Ajustar cantidad de cintas según tamaño de pantalla
             const ribbonCount = window.innerWidth < 768 ? 10 : 15;
-            
+
             for (let i = 0; i < ribbonCount; i++) {
                 setTimeout(() => {
                     const ribbon = document.createElement('div');
                     ribbon.classList.add('ribbon');
-                    
+
                     // Ancho aleatorio
                     const width = Math.random() * 10 + 5;
                     ribbon.style.width = `${width}px`;
-                    
+
                     // Color aleatorio (tonos rosados)
                     const colors = ['#fd79a8', '#f78fb3', '#e84393', '#ff9ff3', '#f8a5c2'];
                     ribbon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    
+
                     // Posición aleatoria
                     ribbon.style.left = `${Math.random() * 100}%`;
-                    
+
                     // Animación aleatoria
                     ribbon.style.animationDuration = `${Math.random() * 4 + 6}s`;
                     ribbon.style.animationDelay = `${Math.random() * 5}s`;
-                    
+
                     body.appendChild(ribbon);
                 }, i * 400);
             }
@@ -816,182 +986,441 @@
         function createClouds() {
             // Ajustar cantidad de nubes según tamaño de pantalla
             const cloudCount = window.innerWidth < 768 ? 3 : 5;
-            
+
             for (let i = 0; i < cloudCount; i++) {
                 setTimeout(() => {
                     const cloud = document.createElement('div');
                     cloud.classList.add('cloud');
-                    
+
                     // Tamaño aleatorio
                     const scale = Math.random() * 0.7 + 0.5;
                     cloud.style.transform = `scale(${scale})`;
-                    
+
                     // Posición aleatoria
                     cloud.style.top = `${Math.random() * 50}%`;
-                    
+
                     // Animación aleatoria
                     cloud.style.animationDuration = `${Math.random() * 20 + 30}s`;
-                    
+
                     body.appendChild(cloud);
                 }, i * 2000);
             }
         }
 
-        // Función para la cuenta regresiva
-        function startCountdown() {
+        // Evento click del botón de revelación
+        revealBtn.addEventListener('click', () => {
+            showWelcomeMessage();
+        });
+
+        // Función para mostrar el mensaje de bienvenida
+        function showWelcomeMessage() {
             card.style.opacity = 0;
             setTimeout(() => {
                 card.style.display = 'none';
-                countdown.style.display = 'block';
-                const countdownMessage = document.getElementById('countdownMessage');
-                
-                // Cambiar el fondo a blanco durante la cuenta regresiva
-                document.body.classList.add('countdown-active');
-                
-                let count = 10;
+                const welcomeMessage = document.getElementById('welcomeMessage');
+                const welcomeContent = document.getElementById('welcomeContent');
+
+                // El texto completo con emojis, dividido en 4 grupos
+                const textGroups = [
+                    // Grupo 1
+                    [
+                        "¡Hola familia! 👋👶",
+                        "Muy pronto llegaré a formar parte de esta hermosa familia. ✨💖",
+                        "Mis papitos están muy emocionados por conocerme y saber si soy una niña o un niño. 🤰🤱"
+                    ],
+                    // Grupo 2
+                    [
+                        "Ellos ya quieren saber cómo serán mis ojitos, mi sonrisa... 👀😊",
+                        "Ya quieren abrazarme, llenarme de besos y consentirme muchoooo. 🤗💕",
+                        "Yo estoy muy feliz, ya quiero conocerlos para jugar con mis primitos, mis tíos y mis abuelitos. 🥰👨‍👩‍👧‍👦"
+                    ],
+                    // Grupo 3
+                    [
+                        "¿Están listos para saber quién soy? 🤔💭",
+                        "Mi mamita dice que si soy niña me hará muchos peinados y me pondrá muchos vestiditos. 👗💇‍♀️",
+                        "También jugaremos a la cocinita y a las muñecas. 🧸🍳",
+                        "Mi papito dice que si soy niño me enseñará a jugar fútbol y a montar bicicleta. ⚽🚲"
+                    ],
+                    // Grupo 4
+                    [
+                        "Ya me falta poquito para iluminar sus vidas y los días de cada uno. ☀️✨",
+                        "¡Ahora sí! ¡Llegó la hora de saber quién soy! 🎉🎊",
+                        "¿Están listos?",
+                        "¡Ayúdenme a contar! 🔢❤️"
+                    ]
+                ];
+
+                // Limpiar contenido previo
+                welcomeContent.innerHTML = '';
+
+                // Mostrar el contenedor
+                welcomeMessage.style.display = 'flex';
+
+                // Variable para seguir el grupo actual
+                let currentGroup = 0;
+
+                // Función para procesar y mostrar un grupo de texto
+                function showTextGroup(groupIndex) {
+                    // Si ya mostramos todos los grupos, pasar a la cuenta regresiva
+                    if (groupIndex >= textGroups.length) {
+                        // Mostrar solo la última línea destacada
+                        highlightLastLine();
+                        return;
+                    }
+
+                    // Limpiar contenido anterior con una transición
+                    if (groupIndex > 0) {
+                        // Ocultar con animación el contenido actual
+                        const existingLines = welcomeContent.querySelectorAll('.welcome-line');
+                        existingLines.forEach(line => {
+                            line.style.opacity = '0';
+                            line.style.transform = 'translateY(-20px)';
+                            line.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        });
+
+                        // Después de la animación, limpiar y mostrar nuevo grupo
+                        setTimeout(() => {
+                            welcomeContent.innerHTML = '';
+                            processAndAnimateGroup(groupIndex);
+                        }, 600);
+                    } else {
+                        // Es el primer grupo, mostrar directamente
+                        processAndAnimateGroup(groupIndex);
+                    }
+                }
+
+                // Función para procesar un grupo y animar sus palabras
+                function processAndAnimateGroup(groupIndex) {
+                    const lines = textGroups[groupIndex];
+
+                    // Extraer emojis usando regex
+                    const emojiRegex = /[\p{Emoji}]/gu;
+
+                    // Convertir cada línea en elementos HTML
+                    lines.forEach((line, lineIndex) => {
+                        const lineDiv = document.createElement('div');
+                        lineDiv.className = 'welcome-line';
+
+                        // Dividir la línea en texto y emojis
+                        let lastIndex = 0;
+                        let match;
+                        let textParts = [];
+
+                        // Encontrar todos los emojis en la línea
+                        while ((match = emojiRegex.exec(line)) !== null) {
+                            // Agregar texto antes del emoji
+                            if (match.index > lastIndex) {
+                                textParts.push({
+                                    text: line.substring(lastIndex, match.index),
+                                    isEmoji: false
+                                });
+                            }
+
+                            // Agregar el emoji
+                            textParts.push({
+                                text: match[0],
+                                isEmoji: true
+                            });
+
+                            lastIndex = match.index + match[0].length;
+                        }
+
+                        // Agregar texto restante después del último emoji
+                        if (lastIndex < line.length) {
+                            textParts.push({
+                                text: line.substring(lastIndex),
+                                isEmoji: false
+                            });
+                        }
+
+                        // Si no se encontraron emojis, usar la línea completa
+                        if (textParts.length === 0) {
+                            textParts.push({
+                                text: line,
+                                isEmoji: false
+                            });
+                        }
+
+                        // Procesar cada parte (texto o emoji)
+                        textParts.forEach(part => {
+                            if (part.isEmoji) {
+                                // Crear elemento para emoji
+                                const emojiSpan = document.createElement('span');
+                                emojiSpan.className = 'welcome-emoji';
+                                emojiSpan.textContent = part.text;
+                                lineDiv.appendChild(emojiSpan);
+                            } else {
+                                // Dividir el texto en palabras
+                                const words = part.text.split(' ');
+                                words.forEach((word, wordIndex) => {
+                                    if (word) {
+                                        const wordSpan = document.createElement('span');
+                                        wordSpan.className = 'welcome-word';
+                                        wordSpan.textContent = word + (wordIndex < words.length - 1 ? ' ' : '');
+                                        lineDiv.appendChild(wordSpan);
+                                    }
+                                });
+                            }
+                        });
+
+                        welcomeContent.appendChild(lineDiv);
+                    });
+
+                    // Crear algunas chispas decorativas
+                    createSparkles();
+
+                    // Animar este grupo
+                    animateCurrentGroup(groupIndex);
+                }
+
+                // Función para animar el grupo actual
+                function animateCurrentGroup(groupIndex) {
+                    const words = welcomeContent.querySelectorAll('.welcome-word');
+                    const emojis = welcomeContent.querySelectorAll('.welcome-emoji');
+                    let wordIndex = 0;
+                    let emojiIndex = 0;
+
+                    // Animar palabras una por una con una velocidad moderada
+                    const wordInterval = setInterval(() => {
+                        if (wordIndex < words.length) {
+                            words[wordIndex].classList.add('visible');
+                            wordIndex++;
+                            
+                            // Crear algunas chispas ocasionalmente
+                            if (wordIndex % 10 === 0) {
+                                createSparkles();
+                            }
+                        } else {
+                            clearInterval(wordInterval);
+                            
+                            // Si es el último grupo, mostrar el texto final destacado
+                            if (groupIndex === textGroups.length - 1) {
+                                setTimeout(() => {
+                                    highlightLastLine();
+                                }, 1500);
+                            } else {
+                                // Pasar al siguiente grupo después de una pausa
+                                setTimeout(() => {
+                                    currentGroup++;
+                                    showTextGroup(currentGroup);
+                                }, 2000); // Pausa entre grupos
+                            }
+                        }
+                    }, 200); // Más rápido: 200ms en lugar de 300ms
+                    
+                    // Animar emojis con un retraso mayor que las palabras
+                    const emojiInterval = setInterval(() => {
+                        if (emojiIndex < emojis.length) {
+                            emojis[emojiIndex].classList.add('visible');
+                            emojiIndex++;
+                        } else {
+                            clearInterval(emojiInterval);
+                        }
+                    }, 300); // Más rápido: 300ms en lugar de 500ms
+                }
+
+                // Función para destacar la última línea "¡Ayúdenme a contar!"
+                function highlightLastLine() {
+                    // Primero resaltamos solo la última línea
+                    const welcomeLines = welcomeContent.querySelectorAll('.welcome-line');
+
+                    // Solo mantener visible la última línea
+                    welcomeLines.forEach((line, index) => {
+                        if (index !== welcomeLines.length - 1) {
+                            // Ocultar todas menos la última
+                            line.style.opacity = '0';
+                            line.style.transform = 'translateY(-20px)';
+                            line.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                        } else {
+                            // Destacar la última línea
+                            line.style.position = 'absolute';
+                            line.style.top = '50%';
+                            line.style.left = '0';
+                            line.style.right = '0';
+                            line.style.textAlign = 'center';
+                            line.style.transform = 'translateY(-50%)';
+                            line.style.fontSize = '2rem';
+                            line.style.color = '#fd79a8';
+                            line.style.textShadow = '2px 2px 5px rgba(0,0,0,0.1)';
+                            line.style.transition = 'all 0.8s ease';
+                        }
+                    });
+
+                    // Animar chispas finales
+                    createSparkles();
+
+                    // Iniciar cuenta regresiva después de un momento
+                    setTimeout(() => {
+                        // Ocultar mensaje de bienvenida y mostrar cuenta regresiva
+                        const welcomeMessage = document.getElementById('welcomeMessage');
+                        welcomeMessage.style.opacity = '0';
+                        welcomeMessage.style.transition = 'opacity 0.8s ease';
+
+                        setTimeout(() => {
+                            welcomeMessage.style.display = 'none';
+                            startCountdown();
+                        }, 800);
+                    }, 2500);
+                }
+
+                // Iniciar con el primer grupo
+                showTextGroup(0);
+            }, 500);
+        }
+
+        // Función para crear chispas decorativas
+        function createSparkles() {
+            const welcomeContent = document.getElementById('welcomeContent');
+            const contentRect = welcomeContent.getBoundingClientRect();
+
+            // Crear 15 chispas aleatorias
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+
+                    // Posición aleatoria alrededor del contenido
+                    const posX = Math.random() * contentRect.width;
+                    const posY = Math.random() * contentRect.height;
+                    sparkle.style.left = `${posX}px`;
+                    sparkle.style.top = `${posY}px`;
+
+                    // Retraso aleatorio para la animación
+                    sparkle.style.animationDelay = `${Math.random() * 2}s`;
+
+                    welcomeContent.appendChild(sparkle);
+
+                    // Eliminar la chispa después de la animación
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 2000);
+                }, i * 500 + Math.random() * 1000);
+            }
+        }
+
+        // Función para la cuenta regresiva
+        function startCountdown() {
+            countdown.style.display = 'block';
+            const countdownMessage = document.getElementById('countdownMessage');
+
+            // Cambiar el fondo a blanco durante la cuenta regresiva
+            document.body.classList.add('countdown-active');
+
+            let count = 10;
+            countdown.textContent = count;
+
+            // Aplicar el efecto de pulso al número inicial (10)
+            countdown.style.animation = 'color-change 1s linear infinite alternate, pulse-animation 0.8s ease-in-out';
+            setTimeout(() => {
+                countdown.style.animation = 'color-change 1s linear infinite alternate';
+            }, 750);
+
+            // Alternamos colores para los números
+            let colorToggle = true;
+
+            const interval = setInterval(() => {
+                count--;
                 countdown.textContent = count;
-                
-                // Aplicar el efecto de pulso al número inicial (10)
+
+                // Alternamos entre celeste y rosado manualmente para cada número
+                // (esto es adicional a la animación)
+                if (colorToggle) {
+                    countdown.style.color = '#74b9ff'; // Celeste
+                    countdown.style.textShadow = '2px 2px 10px rgba(116, 185, 255, 0.5)';
+                } else {
+                    countdown.style.color = '#fd79a8'; // Rosado
+                    countdown.style.textShadow = '2px 2px 10px rgba(253, 121, 168, 0.5)';
+                }
+                colorToggle = !colorToggle;
+
+                // Escala para efecto de pulso usando animación
                 countdown.style.animation = 'color-change 1s linear infinite alternate, pulse-animation 0.8s ease-in-out';
                 setTimeout(() => {
                     countdown.style.animation = 'color-change 1s linear infinite alternate';
                 }, 750);
-                
-                // Alternamos colores para los números
-                let colorToggle = true;
-                
-                // Definimos los mensajes para cada par de números
-                const countdownMessages = {
-                    '10-9': "¡<span class='highlight-blue'>Hola</span> <span class='highlight-pink'>mamá</span> <span class='highlight-blue'>y</span> <span class='highlight-pink'>papá</span>! <span class='highlight-blue'>Estoy</span> <span class='highlight-pink'>muy</span> <span class='highlight-blue'>emocionado</span> <span class='highlight-pink'>porque</span> <span class='highlight-blue'>pronto</span> <span class='highlight-pink'>sabrán</span> <span class='highlight-blue'>quién</span> <span class='highlight-pink'>soy</span>...",
-                    '8-7': "<span class='highlight-blue'>He</span> <span class='highlight-pink'>estado</span> <span class='highlight-blue'>guardando</span> <span class='highlight-pink'>este</span> <span class='highlight-blue'>secreto</span> <span class='highlight-pink'>por</span> <span class='highlight-blue'>meses</span>, <span class='highlight-pink'>¿están</span> <span class='highlight-blue'>listos</span> <span class='highlight-pink'>para</span> <span class='highlight-blue'>descubrirlo</span>?",
-                    '6-5': "<span class='highlight-blue'>Mis</span> <span class='highlight-pink'>manitas</span> <span class='highlight-blue'>están</span> <span class='highlight-pink'>tapando</span> <span class='highlight-blue'>mis</span> <span class='highlight-pink'>ojitos</span>... <span class='highlight-blue'>¡la</span> <span class='highlight-pink'>sorpresa</span> <span class='highlight-blue'>está</span> <span class='highlight-pink'>casi</span> <span class='highlight-blue'>lista</span>!",
-                    '4-3': "<span class='highlight-blue'>Mi</span> <span class='highlight-pink'>corazoncito</span> <span class='highlight-blue'>late</span> <span class='highlight-pink'>fuerte</span> <span class='highlight-blue'>mientras</span> <span class='highlight-pink'>espero</span> <span class='highlight-blue'>el</span> <span class='highlight-pink'>momento</span> <span class='highlight-blue'>de</span> <span class='highlight-pink'>revelarme</span>...",
-                    '2-1': "¡<span class='highlight-blue'>Respiren</span> <span class='highlight-pink'>profundo</span>! <span class='highlight-blue'>En</span> <span class='highlight-pink'>unos</span> <span class='highlight-blue'>segundos</span> <span class='highlight-pink'>sabrán</span> <span class='highlight-blue'>si</span> <span class='highlight-pink'>comprarán</span> <span class='highlight-blue'>vestiditos</span> <span class='highlight-pink'>o</span> <span class='highlight-blue'>corbatitas</span>..."
-                };
-                
-                // Mostrar mensaje inicial
-                countdownMessage.innerHTML = countdownMessages['10-9'];
-                countdownMessage.style.display = 'block';
-                
-                const interval = setInterval(() => {
-                    count--;
-                    countdown.textContent = count;
-                    
-                    // Mostrar mensajes según los pares de números
-                    if (count === 9 || count === 8) {
-                        countdownMessage.innerHTML = countdownMessages['10-9'];
-                    } else if (count === 7 || count === 6) {
-                        countdownMessage.innerHTML = countdownMessages['8-7'];
-                    } else if (count === 5 || count === 4) {
-                        countdownMessage.innerHTML = countdownMessages['6-5'];
-                    } else if (count === 3 || count === 2) {
-                        countdownMessage.innerHTML = countdownMessages['4-3'];
-                    } else if (count === 1 || count === 0) {
-                        countdownMessage.innerHTML = countdownMessages['2-1'];
-                    }
-                    
-                    // Alternamos entre celeste y rosado manualmente para cada número
-                    // (esto es adicional a la animación)
-                    if (colorToggle) {
-                        countdown.style.color = '#74b9ff'; // Celeste
-                        countdown.style.textShadow = '2px 2px 10px rgba(116, 185, 255, 0.5)';
-                    } else {
-                        countdown.style.color = '#fd79a8'; // Rosado
-                        countdown.style.textShadow = '2px 2px 10px rgba(253, 121, 168, 0.5)';
-                    }
-                    colorToggle = !colorToggle;
-                    
-                    // Escala para efecto de pulso usando animación
-                    countdown.style.animation = 'color-change 1s linear infinite alternate, pulse-animation 0.8s ease-in-out';
-                    setTimeout(() => {
-                        countdown.style.animation = 'color-change 1s linear infinite alternate';
-                    }, 750);
-                    
-                    if (count === 0) {
-                        clearInterval(interval);
-                        
-                        // Número aleatorio de repeticiones para el 0 (entre 0 y 4)
-                        const extraZeros = Math.floor(Math.random() * 5);
-                        let zerosShown = 0;
-                        
-                        const showReveal = () => {
-                            // Ocultamos la cuenta regresiva y el mensaje
+
+                if (count === 0) {
+                    clearInterval(interval);
+
+                    // Número aleatorio de repeticiones para el 0 (entre 0 y 4)
+                    const extraZeros = Math.floor(Math.random() * 5);
+                    let zerosShown = 0;
+
+                    const showReveal = () => {
+                        // Ocultamos la cuenta regresiva
+                        setTimeout(() => {
+                            countdown.style.display = 'none';
+
+                            // Restauramos el fondo gradiente
+                            document.body.classList.remove('countdown-active');
+
+                            // Mostramos el mensaje de revelación
+                            revealMessage.style.display = 'flex';
+
+                            // Animaciones adicionales
+                            createFlowers();
+                            createHearts();
+                            createBalloons();
+                            createButterflies();
+                            createRibbons();
+                            createClouds();
+
+                            // Lanzamos el confeti al mostrar el mensaje de niña
+                            runConfettiShower();
+                        }, 1000);
+                    };
+
+                    if (extraZeros > 0) {
+                        // Si hay repeticiones extra, mostramos los ceros adicionales
+                        const zeroInterval = setInterval(() => {
+                            // Aplicar el efecto de pulso en cada repetición
+                            countdown.style.animation = 'color-change 1s linear infinite alternate, pulse-animation 0.8s ease-in-out';
                             setTimeout(() => {
-                                countdown.style.display = 'none';
-                                countdownMessage.style.display = 'none';
-                                
-                                // Restauramos el fondo gradiente
-                                document.body.classList.remove('countdown-active');
-                                
-                                // Mostramos el mensaje de revelación
-                                revealMessage.style.display = 'flex';
-                                
-                                // Animaciones adicionales
-                                createFlowers();
-                                createHearts();
-                                createBalloons();
-                                createButterflies();
-                                createRibbons();
-                                createClouds();
-                                
-                                // Lanzamos el confeti al mostrar el mensaje de niña
-                                runConfettiShower();
-                            }, 1000);
-                        };
-                        
-                        if (extraZeros > 0) {
-                            // Si hay repeticiones extra, mostramos los ceros adicionales
-                            const zeroInterval = setInterval(() => {
-                                // Aplicar el efecto de pulso en cada repetición
-                                countdown.style.animation = 'color-change 1s linear infinite alternate, pulse-animation 0.8s ease-in-out';
-                                setTimeout(() => {
-                                    countdown.style.animation = 'color-change 1s linear infinite alternate';
-                                }, 750);
-                                
-                                zerosShown++;
-                                if (zerosShown >= extraZeros) {
-                                    clearInterval(zeroInterval);
-                                    showReveal();
-                                }
-                            }, 1000);
-                        } else {
-                            // Si no hay repeticiones, mostramos directamente la revelación
-                            showReveal();
-                        }
+                                countdown.style.animation = 'color-change 1s linear infinite alternate';
+                            }, 750);
+
+                            zerosShown++;
+                            if (zerosShown >= extraZeros) {
+                                clearInterval(zeroInterval);
+                                showReveal();
+                            }
+                        }, 1000);
+                    } else {
+                        // Si no hay repeticiones, mostramos directamente la revelación
+                        showReveal();
                     }
-                }, 1000);
-            }, 500);
+                }
+            }, 1000);
         }
 
         // Función para resetear animaciones
         function resetAnimation() {
             // Ocultamos el mensaje de revelación
             revealMessage.style.display = 'none';
-            
+
             // Ocultamos la cuenta regresiva
             countdown.style.display = 'none';
-            
+
+            // Ocultamos el mensaje de bienvenida
+            document.getElementById('welcomeMessage').style.display = 'none';
+
             // Asegurarnos de restaurar el fondo original
             document.body.classList.remove('countdown-active');
-            
+
             // Mostramos la tarjeta inicial
             card.style.display = 'block';
             card.style.opacity = 1;
-            
+
             // Eliminamos todas las flores, cintas, nubes, etc.
             document.querySelectorAll('.flower, .ribbon, .cloud, .balloon, .butterfly').forEach(el => {
                 el.remove();
             });
-            
+
             // Ocultamos y limpiamos los corazones
             heartsContainer.style.display = 'none';
             heartsContainer.innerHTML = '';
         }
-
-        // Evento click del botón de revelación
-        revealBtn.addEventListener('click', () => {
-            startCountdown();
-        });
     </script>
 </body>
+
 </html>
