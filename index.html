@@ -474,6 +474,7 @@
             font-size: 1.3rem;
             line-height: 1.8;
             overflow: hidden;
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
         }
 
         .welcome-content {
@@ -485,6 +486,8 @@
             background: white;
             border: 3px dashed;
             border-image: linear-gradient(45deg, #74b9ff, #fd79a8) 1;
+            width: 100%; /* Asegura que use el 100% del ancho disponible en contenedor padre */
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
         }
 
         .welcome-text {
@@ -550,14 +553,43 @@
             }
         }
 
+        /* Media queries para responsividad del mensaje de bienvenida */
         @media (max-width: 768px) {
             .welcome-content {
                 padding: 20px;
                 max-width: 90%;
+                font-size: 1.1rem;
+            }
+            
+            .welcome-line {
+                margin-bottom: 12px;
             }
         }
 
-        /* Media queries para responsividad */
+        @media (max-width: 480px) {
+            .welcome-message {
+                padding: 15px;
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+            
+            .welcome-content {
+                padding: 15px;
+                max-width: 95%;
+                margin: 0 auto;
+            }
+            
+            .welcome-line {
+                margin-bottom: 10px;
+            }
+            
+            /* Ajuste para móviles pequeños */
+            .welcome-word, .welcome-emoji {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Media queries para responsividad general */
         @media (max-width: 768px) {
             .card {
                 padding: 30px;
@@ -1067,7 +1099,10 @@
                         highlightLastLine();
                         return;
                     }
-
+                    
+                    // Detectar si es dispositivo móvil
+                    const isMobile = window.innerWidth <= 480;
+                    
                     // Limpiar contenido anterior con una transición
                     if (groupIndex > 0) {
                         // Ocultar con animación el contenido actual
@@ -1075,37 +1110,57 @@
                         existingLines.forEach(line => {
                             line.style.opacity = '0';
                             line.style.transform = 'translateY(-20px)';
-                            line.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                            // Transición más rápida en móviles
+                            line.style.transition = `opacity ${isMobile ? '0.5s' : '0.6s'} ease, transform ${isMobile ? '0.5s' : '0.6s'} ease`;
                         });
-
+                        
                         // Después de la animación, limpiar y mostrar nuevo grupo
                         setTimeout(() => {
                             welcomeContent.innerHTML = '';
                             processAndAnimateGroup(groupIndex);
-                        }, 600);
+                        }, isMobile ? 500 : 600);
                     } else {
                         // Es el primer grupo, mostrar directamente
                         processAndAnimateGroup(groupIndex);
                     }
                 }
-
+                
                 // Función para procesar un grupo y animar sus palabras
                 function processAndAnimateGroup(groupIndex) {
+                    // Detectar si es dispositivo móvil
+                    const isMobile = window.innerWidth <= 480;
+                    
+                    // Ajustar el contenedor para mejor visibilidad en móviles
+                    if (isMobile) {
+                        welcomeContent.style.maxHeight = '80vh';
+                        welcomeContent.style.overflowY = 'auto';
+                        welcomeContent.style.padding = '15px';
+                        welcomeContent.style.boxSizing = 'border-box';
+                        welcomeContent.style.width = '95%';
+                        welcomeContent.style.margin = '0 auto';
+                    }
+                    
                     const lines = textGroups[groupIndex];
-
+                    
                     // Extraer emojis usando regex
                     const emojiRegex = /[\p{Emoji}]/gu;
-
+                    
                     // Convertir cada línea en elementos HTML
                     lines.forEach((line, lineIndex) => {
                         const lineDiv = document.createElement('div');
                         lineDiv.className = 'welcome-line';
-
+                        
+                        // En móviles, ajustar márgenes
+                        if (isMobile) {
+                            lineDiv.style.marginBottom = '12px';
+                            lineDiv.style.fontSize = '0.95rem';
+                        }
+                        
                         // Dividir la línea en texto y emojis
                         let lastIndex = 0;
                         let match;
                         let textParts = [];
-
+                        
                         // Encontrar todos los emojis en la línea
                         while ((match = emojiRegex.exec(line)) !== null) {
                             // Agregar texto antes del emoji
@@ -1115,16 +1170,16 @@
                                     isEmoji: false
                                 });
                             }
-
+                            
                             // Agregar el emoji
                             textParts.push({
                                 text: match[0],
                                 isEmoji: true
                             });
-
+                            
                             lastIndex = match.index + match[0].length;
                         }
-
+                        
                         // Agregar texto restante después del último emoji
                         if (lastIndex < line.length) {
                             textParts.push({
@@ -1132,7 +1187,7 @@
                                 isEmoji: false
                             });
                         }
-
+                        
                         // Si no se encontraron emojis, usar la línea completa
                         if (textParts.length === 0) {
                             textParts.push({
@@ -1140,7 +1195,7 @@
                                 isEmoji: false
                             });
                         }
-
+                        
                         // Procesar cada parte (texto o emoji)
                         textParts.forEach(part => {
                             if (part.isEmoji) {
@@ -1162,13 +1217,13 @@
                                 });
                             }
                         });
-
+                        
                         welcomeContent.appendChild(lineDiv);
                     });
-
+                    
                     // Crear algunas chispas decorativas
                     createSparkles();
-
+                    
                     // Animar este grupo
                     animateCurrentGroup(groupIndex);
                 }
@@ -1223,7 +1278,7 @@
                 function highlightLastLine() {
                     // Primero resaltamos solo la última línea
                     const welcomeLines = welcomeContent.querySelectorAll('.welcome-line');
-
+                    
                     // Solo mantener visible la última línea
                     welcomeLines.forEach((line, index) => {
                         if (index !== welcomeLines.length - 1) {
@@ -1232,6 +1287,9 @@
                             line.style.transform = 'translateY(-20px)';
                             line.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                         } else {
+                            // Detectar si es móvil para ajustar el tamaño
+                            const isMobile = window.innerWidth <= 480;
+                            
                             // Destacar la última línea
                             line.style.position = 'absolute';
                             line.style.top = '50%';
@@ -1239,23 +1297,25 @@
                             line.style.right = '0';
                             line.style.textAlign = 'center';
                             line.style.transform = 'translateY(-50%)';
-                            line.style.fontSize = '2rem';
+                            // Tamaño más pequeño para móviles
+                            line.style.fontSize = isMobile ? '1.6rem' : '2rem';
+                            line.style.padding = isMobile ? '0 10px' : '0';
                             line.style.color = '#fd79a8';
-                            line.style.textShadow = '2px 2px 5px rgba(0,0,0,0.1)';
+                            line.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.1)';
                             line.style.transition = 'all 0.8s ease';
                         }
                     });
-
+                    
                     // Animar chispas finales
                     createSparkles();
-
+                    
                     // Iniciar cuenta regresiva después de un momento
                     setTimeout(() => {
                         // Ocultar mensaje de bienvenida y mostrar cuenta regresiva
                         const welcomeMessage = document.getElementById('welcomeMessage');
                         welcomeMessage.style.opacity = '0';
                         welcomeMessage.style.transition = 'opacity 0.8s ease';
-
+                        
                         setTimeout(() => {
                             welcomeMessage.style.display = 'none';
                             startCountdown();
