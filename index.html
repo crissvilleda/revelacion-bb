@@ -743,6 +743,16 @@
                 transform: scale(0.6);
             }
         }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #74b9ff, #fd79a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -1294,7 +1304,20 @@
                     // Animar palabras una por una con una velocidad moderada
                     const wordInterval = setInterval(() => {
                         if (wordIndex < words.length) {
-                            words[wordIndex].classList.add('visible');
+                            const word = words[wordIndex];
+                            word.classList.add('visible');
+                            
+                            // Agregar transición suave para una animación más natural
+                            word.style.opacity = '0';
+                            word.style.transform = 'translateY(10px)';
+                            
+                            // Forzar un reflow antes de aplicar la transición
+                            word.offsetHeight;
+                            
+                            word.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+                            word.style.opacity = '1';
+                            word.style.transform = 'translateY(0)';
+                            
                             wordIndex++;
                             
                             // Crear algunas chispas ocasionalmente
@@ -1314,20 +1337,33 @@
                                 setTimeout(() => {
                                     currentGroup++;
                                     showTextGroup(currentGroup);
-                                }, 2000); // Pausa entre grupos
+                                }, 2500); // Pausa entre grupos - aumentada a 2500ms
                             }
                         }
-                    }, 200); // Más rápido: 200ms en lugar de 300ms
+                    }, 250); // Cambiado a 250ms en lugar de 200ms
                     
                     // Animar emojis con un retraso mayor que las palabras
                     const emojiInterval = setInterval(() => {
                         if (emojiIndex < emojis.length) {
-                            emojis[emojiIndex].classList.add('visible');
+                            const emoji = emojis[emojiIndex];
+                            emoji.classList.add('visible');
+                            
+                            // Agregar transición suave para emojis
+                            emoji.style.opacity = '0';
+                            emoji.style.transform = 'scale(0.7)';
+                            
+                            // Forzar un reflow antes de aplicar la transición
+                            emoji.offsetHeight;
+                            
+                            emoji.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+                            emoji.style.opacity = '1';
+                            emoji.style.transform = 'scale(1)';
+                            
                             emojiIndex++;
                         } else {
                             clearInterval(emojiInterval);
                         }
-                    }, 300); // Más rápido: 300ms en lugar de 500ms
+                    }, 300); // Mantenemos 300ms para emojis
                 }
 
                 // Función para destacar la última línea "¡Ayúdenme a contar!"
@@ -1346,6 +1382,48 @@
                             // Detectar si es móvil para ajustar el tamaño
                             const isMobile = window.innerWidth <= 480;
                             
+                            // Preservar el contenido original que incluye emojis
+                            const originalContent = line.innerHTML;
+                            
+                            // Extraer emojis usando regex
+                            const emojiRegex = /[\p{Emoji}]/gu;
+                            
+                            // Reemplazar el contenido separando texto y emojis
+                            let newContent = '';
+                            let lastIndex = 0;
+                            let match;
+                            
+                            // Dividir la línea en texto y emojis
+                            const originalText = line.textContent;
+                            
+                            // Encontrar todos los emojis en la línea
+                            while ((match = emojiRegex.exec(originalText)) !== null) {
+                                // Agregar texto antes del emoji con gradiente
+                                if (match.index > lastIndex) {
+                                    const textBefore = originalText.substring(lastIndex, match.index);
+                                    newContent += `<span class="gradient-text">${textBefore}</span>`;
+                                }
+                                
+                                // Agregar el emoji sin modificar
+                                newContent += match[0];
+                                
+                                lastIndex = match.index + match[0].length;
+                            }
+                            
+                            // Agregar texto restante después del último emoji
+                            if (lastIndex < originalText.length) {
+                                const textAfter = originalText.substring(lastIndex);
+                                newContent += `<span class="gradient-text">${textAfter}</span>`;
+                            }
+                            
+                            // Si no hay emojis, aplicar gradiente a todo el texto
+                            if (newContent === '') {
+                                newContent = `<span class="gradient-text">${originalText}</span>`;
+                            }
+                            
+                            // Actualizar el contenido de la línea
+                            line.innerHTML = newContent;
+                            
                             // Destacar la última línea
                             line.style.position = 'absolute';
                             line.style.top = '50%';
@@ -1356,7 +1434,6 @@
                             // Tamaño más pequeño para móviles
                             line.style.fontSize = isMobile ? '1.6rem' : '2rem';
                             line.style.padding = isMobile ? '0 10px' : '0';
-                            line.style.color = '#fd79a8';
                             line.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.1)';
                             line.style.transition = 'all 0.8s ease';
                         }
