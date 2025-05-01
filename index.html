@@ -520,8 +520,11 @@
             background: white;
             border: 3px dashed;
             border-image: linear-gradient(45deg, #74b9ff, #fd79a8) 1;
-            width: 100%; /* Asegura que use el 100% del ancho disponible en contenedor padre */
+            width: 90%; /* Asegura que use el 90% del ancho disponible en contenedor padre */
             box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .welcome-text {
@@ -589,37 +592,55 @@
 
         /* Media queries para responsividad del mensaje de bienvenida */
         @media (max-width: 768px) {
-            .welcome-content {
-                padding: 20px;
-                max-width: 90%;
-                font-size: 1.1rem;
+            .welcome-message {
+                padding: 10px;
+                display: none; /* Inicialmente oculto, se cambiará con JS */
+                align-items: center;
+                justify-content: center;
             }
             
-            .welcome-line {
-                margin-bottom: 12px;
+            .welcome-content {
+                padding: 25px;
+                max-width: 90%;
+                width: 90%;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .welcome-word, .welcome-emoji {
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 480px) {
             .welcome-message {
-                padding: 15px;
+                padding: 10px;
                 font-size: 1.1rem;
                 line-height: 1.6;
+                display: none; /* Inicialmente oculto, se cambiará con JS */
+                align-items: center;
+                justify-content: center;
             }
             
             .welcome-content {
                 padding: 15px;
                 max-width: 95%;
-                margin: 0 auto;
+                width: 95%;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             
             .welcome-line {
-                margin-bottom: 10px;
+                margin-bottom: 15px;
+                line-height: 1.4;
             }
             
-            /* Ajuste para móviles pequeños */
             .welcome-word, .welcome-emoji {
-                font-size: 0.95rem;
+                font-size: 1.2rem;
             }
         }
 
@@ -627,7 +648,8 @@
         @media (max-width: 768px) {
             .card {
                 padding: 30px;
-                max-width: 85%;
+                max-width: 90%;
+                width: 90%;
             }
 
             .card h1 {
@@ -679,12 +701,25 @@
                 transform-origin: center;
                 transform: scale(0.8);
             }
+            
+            .welcome-content {
+                padding: 25px;
+                max-width: 90%;
+                width: 90%;
+                box-sizing: border-box;
+            }
+            
+            .welcome-word, .welcome-emoji {
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 480px) {
             .card {
-                padding: 25px;
-                max-width: 90%;
+                padding: 20px;
+                max-width: 95%;
+                width: 95%;
+                box-sizing: border-box;
             }
 
             .card h1 {
@@ -692,13 +727,13 @@
             }
 
             .card p {
-                font-size: 0.9rem;
+                font-size: 1rem;
                 margin-bottom: 15px;
             }
 
             .reveal-btn {
                 padding: 10px 20px;
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .countdown {
@@ -714,7 +749,7 @@
 
             .reveal-content {
                 padding: 20px;
-                max-width: 92%;
+                max-width: 95%;
             }
 
             .reveal-message h1 {
@@ -742,6 +777,81 @@
             .cloud {
                 transform: scale(0.6);
             }
+            
+            .welcome-content {
+                padding: 15px;
+                max-width: 95%;
+                width: 95%;
+                box-sizing: border-box;
+                margin: 0 auto;
+            }
+            
+            .welcome-line {
+                margin-bottom: 15px;
+                line-height: 1.4;
+            }
+            
+            .welcome-word, .welcome-emoji {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 360px) {
+            .welcome-content {
+                padding: 12px;
+                width: 98%;
+                max-width: 98%;
+            }
+            
+            .welcome-word, .welcome-emoji {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 15px;
+                width: 98%;
+                max-width: 98%;
+            }
+        }
+
+        /* Para orientación landscape en móviles */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .welcome-content {
+                padding: 15px;
+                max-width: 85%;
+                width: 85%;
+                margin: 0 auto;
+                max-height: 85vh;
+            }
+            
+            .welcome-word, .welcome-emoji {
+                font-size: 1rem;
+            }
+            
+            .welcome-line {
+                margin-bottom: 10px;
+                line-height: 1.3;
+            }
+        }
+
+        /* Para tablets en portrait */
+        @media (min-width: 481px) and (max-width: 820px) and (orientation: portrait) {
+            .welcome-content {
+                max-width: 85%;
+                width: 85%;
+                padding: 25px;
+            }
+            
+            .welcome-word, .welcome-emoji {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Para asegurar que siempre sea visible sin scroll en cualquier dispositivo */
+        .welcome-content {
+            overflow: visible;
+            margin: auto;
         }
 
         .gradient-text {
@@ -1168,6 +1278,7 @@
                     
                     // Detectar si es dispositivo móvil
                     const isMobile = window.innerWidth <= 480;
+                    const isSmallMobile = window.innerWidth <= 360;
                     
                     // Limpiar contenido anterior con una transición
                     if (groupIndex > 0) {
@@ -1195,14 +1306,19 @@
                 function processAndAnimateGroup(groupIndex) {
                     // Detectar si es dispositivo móvil
                     const isMobile = window.innerWidth <= 480;
+                    const isSmallMobile = window.innerWidth <= 360;
                     
                     // Ajustar el contenedor para mejor visibilidad en móviles
                     if (isMobile) {
-                        welcomeContent.style.maxHeight = '80vh';
-                        welcomeContent.style.overflowY = 'auto';
-                        welcomeContent.style.padding = '15px';
+                        welcomeContent.style.maxHeight = '85vh';
+                        welcomeContent.style.height = 'auto';
+                        welcomeContent.style.display = 'flex';
+                        welcomeContent.style.flexDirection = 'column';
+                        welcomeContent.style.justifyContent = 'center';
+                        welcomeContent.style.alignItems = 'center';
+                        welcomeContent.style.padding = isSmallMobile ? '12px' : '15px';
                         welcomeContent.style.boxSizing = 'border-box';
-                        welcomeContent.style.width = '95%';
+                        welcomeContent.style.width = isSmallMobile ? '95%' : '90%';
                         welcomeContent.style.margin = '0 auto';
                     }
                     
@@ -1216,10 +1332,12 @@
                         const lineDiv = document.createElement('div');
                         lineDiv.className = 'welcome-line';
                         
-                        // En móviles, ajustar márgenes
+                        // En móviles, ajustar márgenes y tamaño de fuente
                         if (isMobile) {
-                            lineDiv.style.marginBottom = '12px';
-                            lineDiv.style.fontSize = '0.95rem';
+                            lineDiv.style.marginBottom = '15px';
+                            lineDiv.style.fontSize = isSmallMobile ? '1.1rem' : '1.2rem';
+                            lineDiv.style.lineHeight = '1.4';
+                            lineDiv.style.width = '100%';
                         }
                         
                         // Dividir la línea en texto y emojis
@@ -1269,6 +1387,10 @@
                                 const emojiSpan = document.createElement('span');
                                 emojiSpan.className = 'welcome-emoji';
                                 emojiSpan.textContent = part.text;
+                                // Ajustar tamaño en móviles
+                                if (isMobile) {
+                                    emojiSpan.style.fontSize = isSmallMobile ? '1.1rem' : '1.2rem';
+                                }
                                 lineDiv.appendChild(emojiSpan);
                             } else {
                                 // Dividir el texto en palabras
@@ -1278,6 +1400,10 @@
                                         const wordSpan = document.createElement('span');
                                         wordSpan.className = 'welcome-word';
                                         wordSpan.textContent = word + (wordIndex < words.length - 1 ? ' ' : '');
+                                        // Ajustar tamaño en móviles
+                                        if (isMobile) {
+                                            wordSpan.style.fontSize = isSmallMobile ? '1.1rem' : '1.2rem';
+                                        }
                                         lineDiv.appendChild(wordSpan);
                                     }
                                 });
