@@ -161,52 +161,86 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #f8a5c2 0%, #c56cf0 100%);
+            background: linear-gradient(135deg, #ffe6f2 0%, #ffd6e7 100%);
             z-index: 15;
             animation: bg-change 5s infinite alternate;
         }
 
         @keyframes bg-change {
-            0% {
-                background: linear-gradient(135deg, #f8a5c2 0%, #c56cf0 100%);
-            }
-
-            100% {
-                background: linear-gradient(135deg, #fd79a8 0%, #a55eea 100%);
-            }
+            0% { background: linear-gradient(135deg, #ffe6f2 0%, #ffd6e7 100%); }
+            100% { background: linear-gradient(135deg, #ffcce0 0%, #ffb6d3 100%); }
         }
 
         .reveal-message h1 {
             font-size: 5rem;
-            color: #fff;
+            color: #fd79a8;
             margin-bottom: 20px;
-            text-shadow: 3px 3px 0px #e84393;
+            text-shadow: 2px 2px 0px rgba(253, 121, 168, 0.3);
             animation: pulse 2s infinite;
             position: relative;
             z-index: 50;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
 
         .reveal-message p {
             font-size: 2rem;
-            color: #fff;
+            color: #fd79a8;
             margin-top: 0;
-            text-shadow: 2px 2px 0px #c56cf0;
+            text-shadow: 1px 1px 0px rgba(253, 121, 168, 0.2);
             position: relative;
             z-index: 50;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .reveal-content {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 5px 25px rgba(253, 121, 168, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 50;
+            max-width: 90%;
+            border: 3px solid #fd79a8;
+            border-style: dotted;
+        }
+
+        .reveal-image {
+            width: 200px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            animation: subtle-glow 3s ease-in-out infinite;
+            position: relative;
+            z-index: 50;
+            border-radius: 15px;
+        }
+
+        @keyframes subtle-glow {
+            0% { 
+                filter: drop-shadow(0 0 3px rgba(253, 121, 168, 0.4));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 7px rgba(253, 121, 168, 0.6));
+                transform: scale(1.02);
+            }
+            100% { 
+                filter: drop-shadow(0 0 3px rgba(253, 121, 168, 0.4));
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* Estilos para el confeti */
@@ -620,12 +654,21 @@
                 top: 60%;
             }
 
+            .reveal-content {
+                padding: 25px;
+                max-width: 85%;
+            }
+
             .reveal-message h1 {
                 font-size: 3.5rem;
             }
 
             .reveal-message p {
                 font-size: 1.5rem;
+            }
+
+            .reveal-image {
+                width: 150px;
             }
 
             .flower,
@@ -669,13 +712,23 @@
                 line-height: 1.5;
             }
 
+            .reveal-content {
+                padding: 20px;
+                max-width: 92%;
+            }
+
             .reveal-message h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
                 margin-bottom: 10px;
             }
 
             .reveal-message p {
                 font-size: 1.2rem;
+            }
+
+            .reveal-image {
+                width: 120px;
+                margin: 10px auto;
             }
 
             .flower,
@@ -715,8 +768,11 @@
 
     <div class="reveal-message" id="revealMessage">
         <div class="reveal-background"></div>
-        <h1>¡Soy Niña!</h1>
-        <p>💕 ¡Una princesita viene en camino! 💕</p>
+        <div class="reveal-content">
+            <h1>¡Soy Niña!</h1>
+            <img src="imagen.jpg" alt="Niña feliz" class="reveal-image">
+            <p>💕 ¡Una princesita viene en camino! 💕</p>
+        </div>
     </div>
 
     <div class="hearts-container" id="heartsContainer"></div>
